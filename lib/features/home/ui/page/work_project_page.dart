@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:lucadev_porforlio/features/home/ui/widgets/item_card.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
@@ -16,14 +16,6 @@ class WorkProjectsPage extends StatefulWidget {
 }
 
 class _WorkProjectsPageState extends State<WorkProjectsPage> {
-  final List<bool> _isHovering = List.generate(2, (index) => false);
-  void _onHover(int index, bool hovering) {
-    setState(() {
-      _isHovering[index] = hovering;
-      print("object");
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

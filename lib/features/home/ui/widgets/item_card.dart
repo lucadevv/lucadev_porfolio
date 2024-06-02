@@ -1,26 +1,23 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 class ItemCard extends StatefulWidget {
   const ItemCard({
-    Key? key,
+    super.key,
     required this.flex,
     required this.heightPorcent,
     required this.url,
-  }) : super(key: key);
+  });
 
   final int flex;
   final double heightPorcent;
   final String url;
 
   @override
-  _ItemCardState createState() => _ItemCardState();
+  ItemCardState createState() => ItemCardState();
 }
 
-class _ItemCardState extends State<ItemCard> {
+class ItemCardState extends State<ItemCard> {
   bool _isHovering = false;
 
   @override
@@ -67,27 +64,32 @@ class _ItemCardState extends State<ItemCard> {
                   ),
                 ),
               ),
-              AnimatedContainer(
+              Container(
                 height: size.height * widget.heightPorcent,
                 width: size.width * 0.2,
                 color: Colors.transparent,
-                duration: const Duration(seconds: 1),
-                transform: Matrix4.translationValues(
-                    0.0, 0.0, _isHovering ? 100.0 : 0.0),
                 child: Padding(
-                  padding: const EdgeInsets.all(18),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  padding: const EdgeInsets.all(24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        "Music App",
-                        style: textTheme.bodyLarge!.copyWith(
-                          color: AppColors.white,
+                      AnimatedScale(
+                        scale: _isHovering ? 1 : 0,
+                        duration: const Duration(milliseconds: 300),
+                        child: Text(
+                          "Music App",
+                          style: textTheme.bodyLarge!.copyWith(
+                            color: AppColors.white,
+                          ),
                         ),
                       ),
-                      const FlutterLogo(
-                        size: 30,
+                      AnimatedScale(
+                        scale: _isHovering ? 1 : 0,
+                        duration: const Duration(milliseconds: 300),
+                        child: const FlutterLogo(
+                          size: 50,
+                        ),
                       ),
                     ],
                   ),

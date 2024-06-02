@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/aboutme_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/hello_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/work_project_page.dart';
@@ -55,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final textTheme = Theme.of(context).textTheme;
+    // final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: SizedBox(
         height: size.height,
