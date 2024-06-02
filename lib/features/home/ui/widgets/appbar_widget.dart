@@ -1,45 +1,90 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
+final navTitle = [
+  'About me',
+  'Projects',
+  'Contact',
+];
+
+class AppbarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppbarWidget({
     super.key,
   });
 
   @override
+  State<AppbarWidget> createState() => _AppbarWidgetState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _AppbarWidgetState extends State<AppbarWidget> {
+  final List<bool> _isHovering = List.generate(3, (index) => false);
+  @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Container(
-      width: preferredSize.width,
-      height: preferredSize.height,
-      padding: const EdgeInsets.symmetric(horizontal: 50),
-      color: Colors.black.withOpacity(0.4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      width: widget.preferredSize.width,
+      height: widget.preferredSize.height,
+      color: Colors.transparent,
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          Text(
-            "<lucadev/>",
-            style: textTheme.labelMedium,
+          ClipRRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
           ),
-          const Spacer(),
-          Text(
-            "Projects",
-            style: textTheme.labelMedium,
-          ),
-          const SizedBox(width: 40),
-          Text(
-            "About me",
-            style: textTheme.labelMedium,
-          ),
-          const SizedBox(width: 40),
-          Text(
-            "Contact",
-            style: textTheme.labelMedium,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "<lucadev/>",
+                  style: textTheme.labelMedium,
+                ),
+                const Spacer(),
+                ...List.generate(
+                  navTitle.length,
+                  (index) {
+                    final item = navTitle[index];
+                    return MouseRegion(
+                      onEnter: (_) => _onHover(index, true),
+                      onExit: (_) => _onHover(index, false),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 32),
+                        child: AnimatedDefaultTextStyle(
+                          duration: const Duration(milliseconds: 200),
+                          style: textTheme.labelMedium!.copyWith(
+                            fontSize: _isHovering[index] ? 24 : 20,
+                          ),
+                          child: Text(
+                            item,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  void _onHover(int index, bool hovering) {
+    setState(() {
+      _isHovering[index] = hovering;
+    });
+  }
 }
