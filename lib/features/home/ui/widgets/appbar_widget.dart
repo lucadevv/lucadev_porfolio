@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 final navTitle = [
   'About me',
@@ -8,26 +9,17 @@ final navTitle = [
   'Contact',
 ];
 
-class AppbarWidget extends StatefulWidget implements PreferredSizeWidget {
+class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppbarWidget({
     super.key,
   });
 
   @override
-  State<AppbarWidget> createState() => _AppbarWidgetState();
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}
-
-class _AppbarWidgetState extends State<AppbarWidget> {
-  final List<bool> _isHovering = List.generate(3, (index) => false);
-  @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Container(
-      width: widget.preferredSize.width,
-      height: widget.preferredSize.height,
+      width: preferredSize.width,
+      height: preferredSize.height,
       color: Colors.transparent,
       child: Stack(
         alignment: Alignment.center,
@@ -46,34 +38,21 @@ class _AppbarWidgetState extends State<AppbarWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  "<lucadev/>",
-                  style: textTheme.labelMedium,
-                ),
-                const Spacer(),
-                ...List.generate(
-                  navTitle.length,
-                  (index) {
-                    final item = navTitle[index];
-                    return MouseRegion(
-                      onEnter: (_) => _onHover(index, true),
-                      onExit: (_) => _onHover(index, false),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 32),
-                        child: AnimatedDefaultTextStyle(
-                          duration: const Duration(milliseconds: 200),
-                          style: textTheme.labelMedium!.copyWith(
-                            fontSize: _isHovering[index] ? 24 : 20,
-                          ),
-                          child: Text(
-                            item,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                Container(
+                  alignment: Alignment.center,
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: AppColors.green,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    "LC",
+                    style: textTheme.labelMedium,
+                  ),
+                )
               ],
             ),
           ),
@@ -82,9 +61,6 @@ class _AppbarWidgetState extends State<AppbarWidget> {
     );
   }
 
-  void _onHover(int index, bool hovering) {
-    setState(() {
-      _isHovering[index] = hovering;
-    });
-  }
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

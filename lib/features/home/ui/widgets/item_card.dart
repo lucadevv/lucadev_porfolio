@@ -7,11 +7,13 @@ class ItemCard extends StatefulWidget {
     required this.flex,
     required this.heightPorcent,
     required this.url,
+    required this.nameApp,
   });
 
   final int flex;
   final double heightPorcent;
   final String url;
+  final String nameApp;
 
   @override
   ItemCardState createState() => ItemCardState();
@@ -43,9 +45,17 @@ class ItemCardState extends State<ItemCard> {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              SizedBox(
+              Container(
                 height: size.height * widget.heightPorcent,
                 width: size.width * 0.2,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.grey,
+                      blurRadius: 20,
+                    )
+                  ],
+                ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: AnimatedScale(
@@ -78,7 +88,7 @@ class ItemCardState extends State<ItemCard> {
                         scale: _isHovering ? 1 : 0,
                         duration: const Duration(milliseconds: 300),
                         child: Text(
-                          "Music App",
+                          widget.nameApp,
                           style: textTheme.bodyLarge!.copyWith(
                             color: AppColors.white,
                           ),

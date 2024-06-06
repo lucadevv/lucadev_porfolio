@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/aboutme_page.dart';
+import 'package:lucadev_porforlio/features/home/ui/page/contact_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/hello_page.dart';
+import 'package:lucadev_porforlio/features/home/ui/page/other_projects_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/work_project_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/widgets/appbar_widget.dart';
-import 'package:lucadev_porforlio/features/home/ui/widgets/item_card.dart';
-import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static const name = "/home_screen";
@@ -68,7 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   const HelloPage(),
                   const AboutmePage(),
                   WorkProjectsPage(widthFactor: _widthFactor),
-                  const OthersProyectjsPage()
+                  const OthersProyectjsPage(),
+                  const ContactPage(),
                 ],
               ),
             ),
@@ -78,43 +79,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class OthersProyectjsPage extends StatelessWidget {
-  const OthersProyectjsPage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Container(
-      color: AppColors.limonGreen,
-      width: size.width,
-      height: size.height,
-      padding: const EdgeInsets.symmetric(horizontal: 50),
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ItemCard(
-            flex: 1,
-            heightPorcent: 0.6,
-            url:
-                'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/267shots_so.webp',
-          ),
-          SizedBox(width: 32),
-          ItemCard(
-            flex: 2,
-            heightPorcent: 0.8,
-            url:
-                'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/177shots_so.webp',
-          ),
-        ],
       ),
     );
   }

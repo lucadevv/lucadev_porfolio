@@ -44,29 +44,32 @@ class _WorkProjectsPageState extends State<WorkProjectsPage> {
               children: [
                 FittedBox(
                   child: Text(
-                    "RECENT WORKS",
+                    "Personal Projects",
                     style: textTheme.displayMedium!.copyWith(
                       color: AppColors.green,
                     ),
                   ),
                 ),
+                const SizedBox(height: 32),
                 const Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ItemCard(
-                      flex: 2,
-                      heightPorcent: 0.75,
+                      flex: 3,
+                      heightPorcent: 0.7,
                       url:
-                          'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/177shots_so.webp',
+                          'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/267shots_so.webp',
+                      nameApp: 'Music App',
                     ),
                     SizedBox(width: 32),
                     ItemCard(
-                      flex: 1,
-                      heightPorcent: 0.6,
+                      flex: 2,
+                      heightPorcent: 0.55,
                       url:
-                          'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/267shots_so.webp ',
+                          'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/theweather.webp',
+                      nameApp: 'Weather App',
                     ),
                   ],
                 ),

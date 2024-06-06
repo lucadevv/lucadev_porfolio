@@ -8,6 +8,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: "luis carranza",
+      debugShowCheckedModeBanner: false,
       routerConfig: appRoutes,
       theme: ligthTheme,
     );
