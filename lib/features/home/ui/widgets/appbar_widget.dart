@@ -49,7 +49,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    "LC",
+                    "LC-",
                     style: textTheme.labelMedium,
                   ),
                 )
