@@ -49,14 +49,14 @@ class HelloPage extends StatelessWidget {
               ),
             ),
           ),
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xff9cc5a1).withOpacity(0.5),
-              ),
-            ),
-          ),
+          // BackdropFilter(
+          //   filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //       color: const Color(0xff9cc5a1).withOpacity(0.5),
+          //     ),
+          //   ),
+          // ),
           Container(
             height: size.height,
             width: size.width,
