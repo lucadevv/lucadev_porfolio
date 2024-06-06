@@ -7,7 +7,7 @@ import 'package:lucadev_porforlio/features/home/ui/page/work_project_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/widgets/appbar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const name = "/home_screen";
+  static const name = "/";
   const HomeScreen({super.key});
 
   @override

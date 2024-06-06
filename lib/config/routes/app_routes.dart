@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lucadev_porforlio/features/home/ui/screens/home_screen.dart';
 
 final appRoutes = GoRouter(
-  initialLocation: '/home_screen',
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: HomeScreen.name,
