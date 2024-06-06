@@ -57,6 +57,7 @@ class _ContactPageState extends State<ContactPage> {
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AutoSizeText(
             "Contact me",
@@ -65,7 +66,7 @@ class _ContactPageState extends State<ContactPage> {
               color: AppColors.limonGreen,
             ),
             maxLines: 1,
-            minFontSize: 24,
+            minFontSize: 12,
             stepGranularity: 1,
           ),
           const SizedBox(height: 64),
@@ -122,12 +123,13 @@ class _ContactPageState extends State<ContactPage> {
                         });
                       },
                       child: AnimatedScale(
-                        scale: _isHovering && index == indexSelected ? 1.5 : 1,
+                        scale: _isHovering && index == indexSelected ? 1.2 : 1,
                         duration: const Duration(milliseconds: 250),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: SvgPicture.asset(
-                            width: 40,
+                            width: 30,
+                            height: 30,
                             item,
                             colorFilter: ColorFilter.mode(
                               AppColors.limonGreen,

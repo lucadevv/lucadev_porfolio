@@ -27,11 +27,8 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
           Container(
             clipBehavior: Clip.hardEdge,
             decoration: const BoxDecoration(),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-              child: Container(
-                color: AppColors.limonGreen.withOpacity(0.01),
-              ),
+            child: Container(
+              color: AppColors.limonGreen.withOpacity(0.1),
             ),
           ),
           Padding(
