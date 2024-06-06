@@ -23,7 +23,7 @@ class _ContactPageState extends State<ContactPage> {
     switch (id) {
       case -1:
         html.window.open(
-            'https://drive.google.com/file/d/1sXf5ke6Ylny5cNqpfbkr0utbf2wQ3uap/view?usp=share_link',
+            'https://drive.google.com/file/d/1bTK15szm4Frkkk9uTl40wkNf6y-dghhz/view?usp=share_link',
             '_blank');
 
         break;
