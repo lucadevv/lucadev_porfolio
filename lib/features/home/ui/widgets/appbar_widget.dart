@@ -24,16 +24,16 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          ClipRRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                ),
-              ),
-            ),
-          ),
+          // ClipRRect(
+          //   child: BackdropFilter(
+          //     filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          //     child: Container(
+          //       decoration: const BoxDecoration(
+          //         color: Colors.transparent,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Row(
