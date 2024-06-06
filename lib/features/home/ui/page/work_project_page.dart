@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lucadev_porforlio/features/home/ui/widgets/item_card.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
@@ -43,15 +42,13 @@ class _WorkProjectsPageState extends State<WorkProjectsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                AutoSizeText(
-                  "Personal Projects",
-                  textAlign: TextAlign.start,
-                  style: textTheme.displayMedium!.copyWith(
-                    color: AppColors.green,
+                FittedBox(
+                  child: Text(
+                    "Personal Projects",
+                    style: textTheme.displayMedium!.copyWith(
+                      color: AppColors.green,
+                    ),
                   ),
-                  maxLines: 1,
-                  minFontSize: 24,
-                  stepGranularity: 1,
                 ),
                 const SizedBox(height: 32),
                 size.width > 1000
