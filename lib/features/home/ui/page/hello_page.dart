@@ -19,16 +19,16 @@ class HelloPage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
-            clipBehavior: Clip.hardEdge,
-            decoration: const BoxDecoration(),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
-              child: Container(
-                color: AppColors.limonGreen.withOpacity(0.35),
-              ),
-            ),
-          ),
+          // Container(
+          //   clipBehavior: Clip.hardEdge,
+          //   decoration: const BoxDecoration(),
+          //   child: BackdropFilter(
+          //     filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+          //     child: Container(
+          //       color: AppColors.limonGreen.withOpacity(0.35),
+          //     ),
+          //   ),
+          // ),
           Container(
             height: 200,
             width: 200,
