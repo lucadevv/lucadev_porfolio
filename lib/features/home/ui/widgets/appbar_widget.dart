@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 final navTitle = [
@@ -24,16 +25,16 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // ClipRRect(
-          //   child: BackdropFilter(
-          //     filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-          //     child: Container(
-          //       decoration: const BoxDecoration(
-          //         color: Colors.transparent,
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          Container(
+            clipBehavior: Clip.hardEdge,
+            decoration: const BoxDecoration(),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              child: Container(
+                color: AppColors.limonGreen.withOpacity(0.01),
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Row(

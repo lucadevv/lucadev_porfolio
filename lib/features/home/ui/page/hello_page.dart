@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 class HelloPage extends StatelessWidget {
@@ -18,6 +20,16 @@ class HelloPage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
+          Container(
+            clipBehavior: Clip.hardEdge,
+            decoration: const BoxDecoration(),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+              child: Container(
+                color: AppColors.limonGreen.withOpacity(0.35),
+              ),
+            ),
+          ),
           Container(
             height: 200,
             width: 200,
@@ -49,14 +61,6 @@ class HelloPage extends StatelessWidget {
               ),
             ),
           ),
-          // BackdropFilter(
-          //   filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-          //   child: Container(
-          //     decoration: BoxDecoration(
-          //       color: const Color(0xff9cc5a1).withOpacity(0.5),
-          //     ),
-          //   ),
-          // ),
           Container(
             height: size.height,
             width: size.width,
@@ -71,10 +75,18 @@ class HelloPage extends StatelessWidget {
                     color: AppColors.green,
                   ),
                 ),
-                Text(
-                  "Luis Carranza.",
-                  style: textTheme.displayLarge!.copyWith(
-                    color: AppColors.green,
+                FittedBox(
+                  child: AnimatedTextKit(
+                    totalRepeatCount: 1,
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        speed: const Duration(milliseconds: 100),
+                        ' Luis Carranza.',
+                        textStyle: textTheme.displayLarge!.copyWith(
+                          color: AppColors.green,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Text(

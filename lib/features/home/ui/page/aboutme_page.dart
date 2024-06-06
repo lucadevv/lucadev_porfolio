@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
@@ -13,15 +14,17 @@ class AboutmePage extends StatelessWidget {
     return Container(
       height: size.height,
       width: size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
       alignment: Alignment.center,
       color: AppColors.grey,
-      child: Text(
+      child: AutoSizeText(
         "I am a Flutter developer from Peru, specializing in creating mobile apps with an exceptional user experience.",
         textAlign: TextAlign.start,
         style: textTheme.displaySmall!.copyWith(
           color: AppColors.limonGreen,
         ),
+        minFontSize: 43,
+        stepGranularity: 1,
       ),
     );
   }

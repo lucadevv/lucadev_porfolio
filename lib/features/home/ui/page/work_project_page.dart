@@ -1,4 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:lucadev_porforlio/features/home/ui/widgets/item_card.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
@@ -20,6 +23,7 @@ class _WorkProjectsPageState extends State<WorkProjectsPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
+
     return Container(
       height: size.height,
       width: size.width,
@@ -40,39 +44,63 @@ class _WorkProjectsPageState extends State<WorkProjectsPage> {
               ),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                FittedBox(
-                  child: Text(
-                    "Personal Projects",
-                    style: textTheme.displayMedium!.copyWith(
-                      color: AppColors.green,
-                    ),
+                AutoSizeText(
+                  "Personal Projects",
+                  textAlign: TextAlign.start,
+                  style: textTheme.displayMedium!.copyWith(
+                    color: AppColors.green,
                   ),
+                  maxLines: 1,
+                  minFontSize: 24,
+                  stepGranularity: 1,
                 ),
                 const SizedBox(height: 32),
-                const Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ItemCard(
-                      flex: 3,
-                      heightPorcent: 0.7,
-                      url:
-                          'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/267shots_so.webp',
-                      nameApp: 'Music App',
-                    ),
-                    SizedBox(width: 32),
-                    ItemCard(
-                      flex: 2,
-                      heightPorcent: 0.55,
-                      url:
-                          'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/theweather.webp',
-                      nameApp: 'Weather App',
-                    ),
-                  ],
-                ),
+                size.width > 1000
+                    ? const Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ItemCard(
+                            flex: 3,
+                            heightPorcent: 0.6,
+                            url:
+                                'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/267shots_so.webp',
+                            nameApp: 'Music App',
+                          ),
+                          SizedBox(width: 32),
+                          ItemCard(
+                            flex: 2,
+                            heightPorcent: 0.5,
+                            url:
+                                'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/theweather.webp',
+                            nameApp: 'Weather App',
+                          ),
+                        ],
+                      )
+                    : const Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            ItemCard(
+                              flex: 1,
+                              heightPorcent: 0.2,
+                              url:
+                                  'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/267shots_so.webp',
+                              nameApp: 'Music App',
+                            ),
+                            SizedBox(height: 32),
+                            ItemCard(
+                              flex: 1,
+                              heightPorcent: 0.2,
+                              url:
+                                  'https://zphhqkbfmmilwzqcmdgu.supabase.co/storage/v1/object/public/profile/theweather.webp',
+                              nameApp: 'Weather App',
+                            ),
+                          ],
+                        ),
+                      ),
               ],
             ),
           )

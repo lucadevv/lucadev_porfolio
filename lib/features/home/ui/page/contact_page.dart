@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 import 'package:lucadev_porforlio/shared/constants/app_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:universal_html/html.dart' as html;
 
 class ContactPage extends StatefulWidget {
@@ -22,12 +21,10 @@ class _ContactPageState extends State<ContactPage> {
   Future<void> contactMe(int id) async {
     switch (id) {
       case -1:
-        final Uri url = Uri.parse("www.linkedin.com/in/luis--carranza");
-        if (await launchUrl(url)) {
-          await launchUrl(url);
-        } else {
-          throw 'Could not launch $url';
-        }
+        html.window.open(
+            'https://drive.google.com/file/d/1sXf5ke6Ylny5cNqpfbkr0utbf2wQ3uap/view?usp=share_link',
+            '_blank');
+
         break;
       case 0:
         html.window
@@ -70,25 +67,30 @@ class _ContactPageState extends State<ContactPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              MouseRegion(
-                onExit: (_) {
-                  setState(() {
-                    _hoverResume = false;
-                  });
+              InkWell(
+                onTap: () {
+                  contactMe(-1);
                 },
-                onHover: (_) {
-                  setState(() {
-                    _hoverResume = true;
-                  });
-                },
-                child: AnimatedScale(
-                  scale: _hoverResume ? 1.2 : 1,
-                  duration: const Duration(milliseconds: 250),
-                  child: Text(
-                    "Resume",
-                    style: textTheme.displayMedium!.copyWith(
-                      color: AppColors.limonGreen,
-                      fontSize: 30,
+                child: MouseRegion(
+                  onExit: (_) {
+                    setState(() {
+                      _hoverResume = false;
+                    });
+                  },
+                  onHover: (_) {
+                    setState(() {
+                      _hoverResume = true;
+                    });
+                  },
+                  child: AnimatedScale(
+                    scale: _hoverResume ? 1.2 : 1,
+                    duration: const Duration(milliseconds: 250),
+                    child: Text(
+                      "Resume",
+                      style: textTheme.displayMedium!.copyWith(
+                        color: AppColors.limonGreen,
+                        fontSize: 30,
+                      ),
                     ),
                   ),
                 ),
