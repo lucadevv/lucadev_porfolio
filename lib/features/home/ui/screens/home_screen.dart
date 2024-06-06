@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (_scrollController.offset > targetOffset) {
         double offsetRatio =
             (_scrollController.offset - targetOffset) / targetOffset;
-        _widthFactor = 0.7 * offsetRatio;
+        _widthFactor = 0.4 * offsetRatio;
 
         if (_widthFactor > 1.0) {
           _widthFactor = 1.0;
@@ -67,6 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
               slivers: [
                 SliverAppBar(
                   backgroundColor: AppColors.limonGreen.withOpacity(0.35),
+                  foregroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  surfaceTintColor: Colors.transparent,
                   elevation: 0,
                   pinned: true,
                   actions: [
