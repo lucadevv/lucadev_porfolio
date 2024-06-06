@@ -4,7 +4,7 @@ import 'package:lucadev_porforlio/features/home/ui/page/contact_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/hello_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/other_projects_page.dart';
 import 'package:lucadev_porforlio/features/home/ui/page/work_project_page.dart';
-import 'package:lucadev_porforlio/features/home/ui/widgets/appbar_widget.dart';
+import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static const name = "/";
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final ScrollController _scrollController = ScrollController();
   double _widthFactor = 0.4;
   final double targetOffset =
-      550.0; // Position where the container should start to scale
+      500.0; // Position where the container should start to scale
   final double scaleFactor = 1; // Maximum scale factor
 
   @override
@@ -53,7 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       body: SizedBox(
         height: size.height,
@@ -61,21 +62,23 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // SingleChildScrollView(
-            //   controller: _scrollController,
-            //   child: Column(
-            //     children: [
-            //       const HelloPage(),
-            //       const AboutmePage(),
-            //       WorkProjectsPage(widthFactor: _widthFactor),
-            //       const OthersProyectjsPage(),
-            //       const ContactPage(),
-            //     ],
-            //   ),
-            // ),
             CustomScrollView(
               controller: _scrollController,
               slivers: [
+                SliverAppBar(
+                  backgroundColor: AppColors.limonGreen.withOpacity(0.35),
+                  elevation: 0,
+                  pinned: true,
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 50),
+                      child: Text(
+                        "LC",
+                        style: textTheme.labelMedium,
+                      ),
+                    )
+                  ],
+                ),
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
@@ -88,10 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
-            ),
-            const Align(
-              alignment: AlignmentDirectional(0, -1),
-              child: AppbarWidget(),
             ),
           ],
         ),

@@ -126,7 +126,7 @@ class _ContactPageState extends State<ContactPage> {
                         scale: _isHovering && index == indexSelected ? 1.2 : 1,
                         duration: const Duration(milliseconds: 250),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.only(left: 16),
                           child: SvgPicture.asset(
                             width: 30,
                             height: 30,

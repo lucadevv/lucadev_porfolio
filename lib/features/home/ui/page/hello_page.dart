@@ -18,13 +18,6 @@ class HelloPage extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Container(
-            clipBehavior: Clip.hardEdge,
-            decoration: const BoxDecoration(),
-            child: Container(
-              color: AppColors.limonGreen.withOpacity(0.4),
-            ),
-          ),
-          Container(
             height: 200,
             width: 200,
             decoration: BoxDecoration(
@@ -53,6 +46,12 @@ class HelloPage extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+          ),
+          Container(
+            decoration: const BoxDecoration(),
+            child: Container(
+              color: AppColors.limonGreen.withOpacity(0.35),
             ),
           ),
           Container(
