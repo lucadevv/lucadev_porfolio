@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
@@ -53,14 +54,19 @@ class _ContactPageState extends State<ContactPage> {
       height: size.height,
       width: size.width,
       color: AppColors.green,
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          AutoSizeText(
             "Contact me",
+            textAlign: TextAlign.start,
             style: textTheme.displayMedium!.copyWith(
               color: AppColors.limonGreen,
             ),
+            maxLines: 1,
+            minFontSize: 24,
+            stepGranularity: 1,
           ),
           const SizedBox(height: 64),
           Row(
