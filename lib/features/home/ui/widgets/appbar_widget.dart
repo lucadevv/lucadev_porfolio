@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lucadev_porforlio/shared/constants/app_colors.dart';
 
 final navTitle = [
