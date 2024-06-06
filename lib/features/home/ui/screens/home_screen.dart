@@ -61,17 +61,33 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            SingleChildScrollView(
+            // SingleChildScrollView(
+            //   controller: _scrollController,
+            //   child: Column(
+            //     children: [
+            //       const HelloPage(),
+            //       const AboutmePage(),
+            //       WorkProjectsPage(widthFactor: _widthFactor),
+            //       const OthersProyectjsPage(),
+            //       const ContactPage(),
+            //     ],
+            //   ),
+            // ),
+            CustomScrollView(
               controller: _scrollController,
-              child: Column(
-                children: [
-                  const HelloPage(),
-                  const AboutmePage(),
-                  WorkProjectsPage(widthFactor: _widthFactor),
-                  const OthersProyectjsPage(),
-                  const ContactPage(),
-                ],
-              ),
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      const HelloPage(),
+                      const AboutmePage(),
+                      WorkProjectsPage(widthFactor: _widthFactor),
+                      const OthersProyectjsPage(),
+                      const ContactPage(),
+                    ],
+                  ),
+                ),
+              ],
             ),
             const Align(
               alignment: AlignmentDirectional(0, -1),
